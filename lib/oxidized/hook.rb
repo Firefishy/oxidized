@@ -59,7 +59,7 @@ module Oxidized
           r_hook.hook.run_hook ctx
         rescue StandardError => e
           Oxidized.logger.error "Hook #{r_hook.name} (#{r_hook.hook}) failed " \
-                                "(#{e.inspect}) for event #{event.inspect}"
+                                "(#{e.full_message}) #{e.backtrace.join("\n")} for event #{event.inspect}"
         end
       end
     end
